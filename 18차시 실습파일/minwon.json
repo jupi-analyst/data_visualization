@@ -1,0 +1,30 @@
+﻿[
+{
+	"Letter": "드럼",
+	"Freq": 85	
+},
+{
+	"Letter" : "소음",
+	"Freq": 75
+},
+{
+	"Letter" : "원룸",
+	"Freq": 64
+},
+{
+	"Letter" : "베란다",
+	"Freq": 59
+},
+{
+	"Letter" : "청소",
+	"Freq" : 58
+},
+{
+	"Letter" : "설치",
+	"Freq" : 55
+},
+{
+	"Letter" : "화장실",
+	"Freq" : 52
+}
+]

@@ -1,0 +1,110 @@
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1000">
+		<title>Simple Line Graph using SVG and d3.js</title>
+		<script src="http://mbostock.github.com/d3/d3.v2.js"></script>
+		<style>
+			/* 영역 채우기 없이 얇은 RED 라인을 그림 */
+			path {
+				stroke: darkred;
+				stroke-width: 1;
+				fill: none;
+			}
+			
+			.axis {
+			  shape-rendering: crispEdges;
+			}
+
+			.x.axis line {
+			  stroke: lightgrey;
+			}
+
+			.x.axis .minor {
+			  stroke-opacity: .5;
+			}
+
+			.x.axis path {
+			  display: none;
+			}
+
+			.y.axis line, .y.axis path {
+			  fill: none;
+			  stroke: #000;
+			}
+		</style>
+	</head>
+	<body>
+
+<h3> 시간대별 스마트폰을 만지는 횟수 (가상데이터) </h3> 
+	<div id="graph" class="aGraph" style="position:absolute;top:0px;left:0; float:left;"></div>
+
+
+	<script>
+		/* http://bl.ocks.org/1166403 에서 참고 했음 */
+		
+		// 그래프의 크기를 정의
+		var m = [80, 80, 80, 80]; // 여백
+		var w = 1000 - m[1] - m[3]; // 가로 길이
+		var h = 400 - m[0] - m[2]; // 세로길이
+		
+         // 라인 차트를 만들기 위해 간단한 데이터 배열 생성
+		var data = [ 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7,3, 6, 2, 7, 5, 2, 5, 2, 1, 3, 8];
+
+		// x축 크기 0-w
+		var x = d3.scale.linear().domain([0, data.length]).range([0, w]);
+		// Y축 크기
+		var y = d3.scale.linear().domain([0, 10]).range([h, 0]);
+			// 최대 범위를 설정
+			// var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
+
+		// x축과 y 축  라인 함수 작성
+		var line = d3.svg.line()
+			// x 기능 할당
+			.x(function(d,i) { 
+				// 실제로 로깅하는 데이터값
+				console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
+				// 데이터 포인트
+				return x(i); 
+			})
+			.y(function(d) { 
+				// 실제로 로깅하는 데이터 값
+				console.log('Plotting Y value for data point: ' + d + ' to be at: ' + y(d) + " using our yScale.");
+				// 데이터 포인트
+				return y(d); 
+			})
+
+			// 원하는 크기와 여백이있는 SVG 요소를 추가함
+			var graph = d3.select("#graph").append("svg:svg")
+			      .attr("width", w + m[1] + m[3])
+			      .attr("height", h + m[0] + m[2])
+			    .append("svg:g")
+			      .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+			// y축 좌표
+			var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
+			// Add the x-axis.
+			graph.append("svg:g")
+			      .attr("class", "x axis")
+			      .attr("transform", "translate(0," + h + ")")
+			      .call(xAxis);
+
+
+			// y축 좌표
+			var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
+			// y축 추가
+			graph.append("svg:g")
+			      .attr("class", "y axis")
+			      .attr("transform", "translate(-25,0)")
+			      .call(yAxisLeft);
+			
+  			// svg를 추가하여 행의 경로 설정
+			// 선이 눈금선 위에 있도록 함.
+  			graph.append("svg:path").attr("d", line(data));
+			
+
+	</script>
+
+
+	</body>
+</html>

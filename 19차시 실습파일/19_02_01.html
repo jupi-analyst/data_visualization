@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <!--구글 자바스크립트 라이브러리 로딩-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    // 패키지 로딩
+    google.charts.load('current', {'packages':['bar']});
+      
+    // drawChart 함수를 불러낸다.
+    google.charts.setOnLoadCallback(drawChart);
+      
+    function drawChart() {
+      var jsonData = $.ajax({
+          url: "19_02.php",
+          dataType: "json",
+          async: false
+          }).responseText;
+ 
+      // 서버로부터 json 데이터를 불러온다.
+      var data = new google.visualization.DataTable(jsonData);
+         // 그래프 옵션
+        var options = {
+			title:'김밥 레시피 데이터 분석'
+			};
+      // 옵션 설정하여 파이차트를 그린다.
+      var chart = new google.charts.Bar(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div" style="width: 500px; height: 400px;"></div>
+  </body>
+</html>

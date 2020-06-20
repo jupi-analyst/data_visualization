@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>D3: Loading data from a CSV file</title>
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+			d3.csv("cook.csv", function(data) {
+				console.log(data);
+			});
+
+		</script>
+	</body>
+</html>

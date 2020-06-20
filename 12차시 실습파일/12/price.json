@@ -1,0 +1,7 @@
+JSONData = [
+  { "id": 1, "created_at": "일요일", "amount": 22000},
+  { "id": 3, "created_at": "월요일", "amount": 30000},
+  { "id": 4, "created_at": "화요일", "amount": 33000},
+  { "id": 2, "created_at": "수요일", "amount": 21000},
+  { "id": 5, "created_at": "금요일", "amount": 12000}
+]

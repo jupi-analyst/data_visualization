@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>무제 문서</title>
+
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+  <script>
+    var data = [10,20,30,40,50];
+    var min = d3.min(data); //최소값
+    var max = d3.max(data); //최대값
+    var extent = d3.extent(data); //[최소,최대]
+    var sum = d3.sum(data); //합
+    var mean = d3.mean(data); //산술평균치
+    var median = d3.median(data); //배열위치의 중앙값
+    var quantile1 = d3.quantile(data,0); //배열첫번째값
+    var quantile2 = d3.quantile(data,1); //배열끝값
+    var quantile3 = d3.quantile(data,0.15); //분위수(표본전체도수를 등분하여 등분값)
+    var variance = d3.variance (data); //분산
+    var deviation = d3.deviation(data); //표준편차
+
+    console.log("min : " + min);
+    console.log("max : " + max);
+    console.log("extent : " + extent);
+    console.log("sum : " + sum);
+    console.log("mean : " + mean);
+    console.log("median : " + median);
+    console.log("quantile1 : " + quantile1);
+    console.log("quantile2 : " + quantile2);
+    console.log("quantile3 : " + quantile3);
+    console.log("variance : " + variance);
+    console.log("deviation : " + deviation);
+  </script>
+</body>
+
+

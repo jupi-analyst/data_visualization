@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>기초마우스이벤트</title>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+
+<div id="mouse_example"></div>
+<script type="text/javascript">
+var sampleSVG = d3.select("#mouse_example")
+.append("svg:svg")
+.attr("width", 400)
+.attr("height", 200);    
+
+sampleSVG.append("svg:rect")
+.style("stroke", "gray")
+.style("fill", "white")
+.attr("x", 50)
+.attr("y", 50)
+.attr("width", 100)
+.attr("height", 100)
+.on("mouseover", function(){d3.select(this).style("fill", "lightblue");})
+.on("mouseout", function(){d3.select(this).style("fill", "white");});
+    
+</script> 
