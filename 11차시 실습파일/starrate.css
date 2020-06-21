@@ -1,6 +1,0 @@
-/* UI Object */
-.starrate,
-.starrate span{display:inline-block;overflow:hidden;height:14px;background:transparent url(img/ico_star.gif) no-repeat}
-.starrate{width:99px;vertical-align:middle}
-.starrate span{background-position:0 -14px;line-height:0;text-indent:-100px;*text-indent:0;vertical-align:top}
-/* //UI Object */
