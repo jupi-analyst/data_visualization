@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="euc-kr">
+<style type="text/css">
+#graph {    
+ width : 640px;    
+ height: 480px;    
+ margin: 30px auto;
+ }
+.graph-title {    
+ font-size:12pt;    
+ font-weight:bold;    
+ text-align:center;  
+ color:brown;  
+ margin:50px 0 0;
+}
+</style>
+<title>Flotr2 원그래프 라이브러리</title>
+<script type="text/javascript" src="flotr2.min.js"></script>
+</head>
+
+<body>
+<p class="graph-title">세계인구 순위 TOP 5</p>
+<div id="graph"></div>
+<script type="text/javascript">
+(function basic_pie(container) {   
+    var d1 = [        
+ [0, 62000]        
+ ],        
+  d2 = [            
+ [0, 48000]        
+ ],        
+ d3 = [            
+ [0, 35000]        
+ ],        
+ d4 = [            
+ [0, 25000]        
+ ],        
+ d5 = [            
+ [0, 15000]        
+ ],        
+        
+ graph;    
+ graph = Flotr.draw(container, [{        
+  data: d1,        
+  label: "중국"    
+ }, {        
+  data: d2,        
+  label: "인도"    
+ }, {        
+  data: d3,        
+  label: "미국",        
+  pie: {            
+   explode: 30     
+  }    
+ }, {        
+  data: d4,        
+  label: "인도네시아"    
+ }, {        
+  data: d5,        
+  label: "브라질"       
+ }], {        
+  HtmlText: false,        
+  grid: {            
+   verticalLines: false,            
+   horizontalLines: false        
+  },        
+  xaxis: {            
+   showLabels: false       
+  },        
+  yaxis: {            
+   showLabels: false        
+  },        
+  pie: {            
+   show: true,            
+   explode: 1        
+  },        
+  mouse: {            
+   track: true        
+  },        
+  legend: {            
+   position: "se",            
+   backgroundColor: "#ccd990"        
+  }    
+ });
+})(document.getElementById("graph"));
+</script>
+</body>
+</html>
